@@ -1,0 +1,39 @@
+.profile-container {
+    min-height: 100vh;
+    background-color: #14181c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;  /* equivalent to pt-20 */
+}
+
+.profile-card {
+    background-color: rgb(31, 41, 55);  /* equivalent to bg-gray-800 */
+    padding: 2rem;  /* equivalent to p-8 */
+    border-radius: 0.5rem;  /* equivalent to rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);  /* equivalent to shadow-lg */
+    max-width: 28rem;  /* equivalent to max-w-md */
+    width: 100%;
+}
+
+.profile-title {
+    font-size: 1.5rem;  /* equivalent to text-2xl */
+    font-weight: 700;  /* equivalent to font-bold */
+    color: white;
+    margin-bottom: 1.5rem;  /* equivalent to mb-6 */
+}
+
+.profile-field-container {
+    margin-top: 1rem;  /* Creates space between fields */
+}
+
+.profile-label {
+    color: rgb(156, 163, 175);  /* equivalent to text-gray-400 */
+    display: block;
+    margin-bottom: 0.25rem;  /* equivalent to mb-1 */
+}
+
+.profile-value {
+    color: white;
+}

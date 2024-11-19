@@ -1,0 +1,171 @@
+.App {
+  text-align: center;
+  background-color: #14181c;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.outter-most-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.75rem;  /* equivalent to text-6xl */
+  text-align: center;
+  margin-bottom: 2rem;  /* equivalent to mb-8 */
+  letter-spacing: 0.025em;  /* equivalent to tracking-wide */
+  
+  /* Create gradient text */
+  background: linear-gradient(to bottom, #dc2626, #b91c1c);  /* red-600 to red-700 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  /* Drop shadow */
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.8));
+
+  /* Responsive font size */
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+}
+
+.backdrop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  /* min-height: 100vh; */
+  background-color: #14181c;
+}
+
+/* Background image container */
+.image-container {
+  position: relative;
+  width: 70vw;
+  height: 50vh; /* Reduce height to leave space for text */
+  overflow: hidden;
+  /* border-radius: 10%; */
+  /* margin-top: 2rem; */
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Enhanced radial gradient with more aggressive fade */
+  background: radial-gradient(
+    circle at center,
+    rgba(20, 24, 28, 0) 20%,    /* Transparent center */
+    rgba(20, 24, 28, 0.2) 35%,  /* Very subtle fade start */
+    rgba(20, 24, 28, 0.7) 55%,  /* Mid fade */
+    rgba(20, 24, 28, 0.9) 70%,  /* Strong fade */
+    rgba(20, 24, 28, 1) 85%     /* Complete fade to background */
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Image wrapper to handle the actual image */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#gladiator_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+/* Content container */
+.content-container {
+  position: relative;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.headline-1 {
+  font-family: 'Graphik', 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+}
+
+/* Make sure the navbar is above the image */
+/* .navbar {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+} */
+
+
+p {
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
