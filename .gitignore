@@ -7,6 +7,7 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+<<<<<<< HEAD
 # Frontend dependencies
 frontend/node_modules
 frontend/.pnp
@@ -55,6 +56,8 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+=======
+>>>>>>> ba7ea7b1475ea4617733d3e74eb817e155a0be97
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
