@@ -24,7 +24,6 @@ function Home() {
     }
   };
 
-  console.log("recs :", recommendations);
 
 
   return (
@@ -45,7 +44,7 @@ function Home() {
           <h2 className="headline-1">
             Track films you've watched<br />
             Save those you want to see<br />
-            Tell your friends what's good
+            Find new suggestions
           </h2>
           
           <SearchBar onSearch={handleSearch} />

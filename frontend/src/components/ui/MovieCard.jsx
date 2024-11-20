@@ -53,27 +53,29 @@ const MovieCard = ({
 
   return (
     <div className="movie-card">
-        <Link 
-            to={`/movie/${encodeURIComponent(title)}`}
-            state={{ movie: { 
-            title, 
-            year, 
-            genres: movie.genres 
-            }}}
-            className="movie-title-link"
-        >
-            <h3 className="movie-title">{title}</h3>
-        </Link>
-        <p className="movie-year">Year: {year}</p>
-        <p className="movie-genres">{movie.genres}</p>
-        {user && buttons && (
-            <div className="button-container">
-            {buttons.map((button, index) => (
-                renderButton(button.type, button.onClick)
-            ))}
-            </div>
-        )}
+      <Link 
+        to={`/movie/${encodeURIComponent(title)}`}
+        state={{ movie: { 
+          title, 
+          year, 
+          genres: movie.genres 
+        }}}
+        className="movie-title-link"
+      >
+        <h3 className="movie-title">{title}</h3>
+      </Link>
+      <p className="movie-year">Year: {year}</p>
+      <p className="movie-genres">{movie.genres}</p>
+      {user && buttons && (
+        <div className="button-container">
+          {buttons.map((button, index) => (
+            <React.Fragment key={`${button.type}-${index}`}>
+              {renderButton(button.type, button.onClick)}
+            </React.Fragment>
+          ))}
         </div>
+      )}
+    </div>
   );
 };
 
