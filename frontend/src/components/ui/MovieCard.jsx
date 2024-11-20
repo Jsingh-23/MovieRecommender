@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import "../../styles/moviecard.css";
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ 
   movie, 
@@ -52,17 +53,27 @@ const MovieCard = ({
 
   return (
     <div className="movie-card">
-      <h3 className="movie-title">{title}</h3>
-      <p className="movie-year">Year: {year}</p>
-      <p className="movie-genres">{movie.genres}</p>
-      {user && buttons && (
-        <div className="button-container">
-          {buttons.map((button, index) => (
-            renderButton(button.type, button.onClick)
-          ))}
+        <Link 
+            to={`/movie/${encodeURIComponent(title)}`}
+            state={{ movie: { 
+            title, 
+            year, 
+            genres: movie.genres 
+            }}}
+            className="movie-title-link"
+        >
+            <h3 className="movie-title">{title}</h3>
+        </Link>
+        <p className="movie-year">Year: {year}</p>
+        <p className="movie-genres">{movie.genres}</p>
+        {user && buttons && (
+            <div className="button-container">
+            {buttons.map((button, index) => (
+                renderButton(button.type, button.onClick)
+            ))}
+            </div>
+        )}
         </div>
-      )}
-    </div>
   );
 };
 

@@ -43,7 +43,6 @@ const WatchHistoryPage = () => {
         }
     }
 
-    console.log("history: ", watchHistoryList);
 
     useEffect(() => {
         getWatchHistoryData();

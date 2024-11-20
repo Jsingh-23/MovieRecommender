@@ -10,6 +10,7 @@ import './App.css';
 import ProfilePage from './pages/protected/Profile';
 import WatchlistPage from './pages/protected/Watchlist';
 import WatchHistoryPage from './pages/protected/Watchhistory';
+import MoviePage from './pages/MoviePage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/movie/:title" element={<MoviePage />} />
             </Routes>
 
             <Routes>

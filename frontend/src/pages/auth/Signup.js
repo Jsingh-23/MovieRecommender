@@ -98,36 +98,7 @@ const SignupPage = () => {
                             <div className="error-message">
                                 {error}
                             </div>
-                        )}
-
-                        {/* <div className="form-group">
-                            <label htmlFor="first_name">First Name</label>
-                            <input
-                                id="first_name"
-                                name="first_name"
-                                type="first_name"
-                                autoComplete="first_name"
-                                required
-                                value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
-                                className="form-input"
-                            />
-                        </div>
-
-                        <div className="form-group">
-                            <label htmlFor="last_name">Last Name</label>
-                            <input
-                                id="last_name"
-                                name="last_name"
-                                type="last_name"
-                                autoComplete="last_name"
-                                required
-                                value={lastName}
-                                onChange={(e) => setLastName(e.target.value)}
-                                className="form-input"
-                            />
-                        </div> */}
-                        
+                        )}                        
                         <div className="form-group">
                             <label htmlFor="email">Email address</label>
                             <input
