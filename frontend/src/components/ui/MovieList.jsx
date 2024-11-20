@@ -1,5 +1,6 @@
 import { useAuth } from "../../contexts/AuthContext";
 import { addToWatchlist } from "../../services/api";
+import MovieCard from "./MovieCard";
 import "../../styles/list.css";
 
 export default function MovieList({ movies }) {
@@ -26,28 +27,19 @@ export default function MovieList({ movies }) {
     return (
       <div className="movies-grid">
         {movies.map((movie, index) => (
-          <div
+          <MovieCard
             key={index}
-            className="movie-card"
-          >
-            <h3 className="movie-title">
-              {movie.title.substring(0,movie.title.length-4)}
-            </h3>
-            <p className="movie-year">
-              Year: {(movie.title.slice(-4))}
-            </p>
-            <p className="movie-genres">
-              {movie.genres}
-            </p>
-            {user && (
-              <button
-                className="watchlist-button"
-                onClick={() => handleAddToWatchlist(movie)}>
-                Add to watchlist
-              </button>
-            )}
-          </div>
+            movie={movie}
+            user={user}
+            isMovieList={true}
+            buttons={[
+              {
+                type: 'addToWatchlist',
+                onClick: () => handleAddToWatchlist(movie)
+              },
+            ]}
+          />
         ))}
       </div>
     );
-  };
+};

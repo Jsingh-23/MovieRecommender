@@ -41,6 +41,11 @@ export default function NavBar() {
                             Watchlist
                             </Link>
                         </span>
+                        <span className="nav-item">
+                            <Link to="watchhistory" className="nav-item">
+                            History
+                            </Link>
+                        </span>
                         
                         <button 
                             onClick={handleLogout} 

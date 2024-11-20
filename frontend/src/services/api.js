@@ -83,3 +83,54 @@ export const getWatchlist = async(userId) => {
     throw error;
   }
 }
+
+export const addToWatchHistory = async(userId, movie) => {
+  if (!userId) throw new Error('User ID is required');
+  console.log("api: ", movie);
+
+  try {
+    const watchHistoryRef = collection(db, 'users', userId, 'watchhistory');
+    return await addDoc(watchHistoryRef, {
+      title: movie.title,
+      year: movie.year,
+      genres: movie.genres,
+      addedAt: serverTimestamp(),
+    });
+  } catch (error) {
+    console.error("Error adding to watch history: ", error);
+    throw error;
+  }  
+}
+
+export const removeFromWatchHistory = async(userId, movieId) => {
+  if (!userId || !movieId) throw new Error('User ID and Movie ID are required');
+
+  try {
+    const movieRef = doc(db, 'users', userId, 'watchhistory', movieId);
+    return await deleteDoc(movieRef);
+  } catch (error) {
+    console.error("Error removing movie from watchhistory: ", error);
+    throw error;
+  }
+}
+
+export const getWatchHistory = async(userId) => {
+  if (!userId) throw new Error('User ID is required');
+
+  try {
+    const watchHistoryRef = collection(db, 'users', userId, 'watchhistory');
+    const q = query(watchHistoryRef, orderBy('addedAt', 'desc'));
+
+    const snapshot = await getDocs(q);
+    const watchhistory = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+      addedAt: doc.data().addedAt?.toDate(),
+    }));
+
+    return watchhistory;
+  } catch (error) {
+    console.error("Error getting watchhistory: ", error);
+    throw error;
+  }
+}

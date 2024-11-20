@@ -1,9 +1,8 @@
 import { useAuth } from "../../contexts/AuthContext";
 import { useState, useEffect } from "react";
-import { getWatchlist, removeFromWatchlist } from "../../services/api";
-// import "frontend\src\styles\list.css";
+import { getWatchlist, removeFromWatchlist, addToWatchHistory } from "../../services/api";
 import "../../styles/list.css";
-// import "../../styles/list.css";
+import MovieCard from "../../components/ui/MovieCard";
 
 const WatchlistPage = () => {
     const {user} = useAuth();
@@ -20,8 +19,6 @@ const WatchlistPage = () => {
         try {
             const data = await getWatchlist(user.uid);
             setWatchlist(data);
-            console.log(typeof watchlist);
-            console.log(watchlist);
         } catch(error) {
             setError("Failed to load watchlist");
             console.error(error);
@@ -47,39 +44,45 @@ const WatchlistPage = () => {
         }
     }
 
+    const handleAddToWatchHistory = async(movieId) => {
+        if (!user) return;
+        setError(null);
+        setLoading(true);
+        try {
+            await addToWatchHistory(user.uid, movieId);
+        } catch (error) {
+            setError("Failed to add movie to watch history: ", error);
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     useEffect(() => {
         getWatchlistData();
     }, [user]);
 
     return (
         <div className="movies-grid">
-            {console.log("in div: ", watchlist)}
-            {watchlist.map((movie, index) => (
-                <div
-                    key={index}
-                    className="movie-card"
-                >
-                    <h3 className="movie-title">
-                        {movie.title}
-                    </h3>
-                    {/* <p>
-                        id: {movie.id};
-                    </p> */}
-                    <p className="movie-year">
-                        Year: {movie.year}
-                    </p>
-                    <p className="movie-genres">
-                        {movie.genres}
-                    </p>
-                    <button
-                        className="remove-button"
-                        onClick={() => handleRemoveFromWatchlist(movie.id)}>
-                        Remove
-                    </button>
-                </div>
-            ))}
+          {watchlist.map((movie, index) => (
+            <MovieCard
+              key={index}
+              movie={movie}
+              user={user}
+              buttons={[
+                {
+                  type: 'removeFromWatchlist',
+                  onClick: () => handleRemoveFromWatchlist(movie.id)
+                },
+                {
+                  type: 'addToHistory',
+                  onClick: () => handleAddToWatchHistory(movie)
+                }
+              ]}
+            />
+          ))}
         </div>
-    );
+      );
 }
 
 export default WatchlistPage;

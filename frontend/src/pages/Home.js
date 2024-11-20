@@ -24,6 +24,9 @@ function Home() {
     }
   };
 
+  console.log("recs :", recommendations);
+
+
   return (
     <div>
       {/* Hero section with background image */}

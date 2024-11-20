@@ -3,6 +3,7 @@
 /* Grid container */
 .movies-grid {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 1rem;
     margin-top: 2rem;
@@ -23,7 +24,7 @@
  /* Movie card */
  .movie-card {
     padding: 1rem;
-    background-color: white;
+    background-color: #0c0d0e;
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s;
@@ -41,20 +42,20 @@
  
  .movie-year {
     margin-top: 0.25rem;
-    color: #4B5563; /* gray-600 */
+    color: #1f64c4; /* gray-600 */
  }
  
  .movie-genres {
     margin-top: 0.25rem;
     font-size: 0.875rem;
-    color: #6B7280; /* gray-500 */
+    color: #1f64c4; /* gray-600 */
  }
  
  /* Add to watchlist button */
  .watchlist-button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #3B82F6; /* blue-500 */
+    background-color: black; /* blue-500 */
     color: white;
     border: none;
     border-radius: 0.375rem;
@@ -70,4 +71,12 @@
  .watchlist-button:disabled {
     background-color: #9CA3AF; /* gray-400 */
     cursor: not-allowed;
+ }
+
+ .remove-button {
+   background-color: white;
+ }
+
+ .add-to-watch-history-button {
+   background-color: white;
  }

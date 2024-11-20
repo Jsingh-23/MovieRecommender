@@ -9,6 +9,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import './App.css';
 import ProfilePage from './pages/protected/Profile';
 import WatchlistPage from './pages/protected/Watchlist';
+import WatchHistoryPage from './pages/protected/Watchhistory';
 
 function App() {
   return (
@@ -42,6 +43,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <WatchlistPage />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/watchhistory"
+                element={
+                  <ProtectedRoute>
+                    <WatchHistoryPage />
                   </ProtectedRoute>
                 } 
               />

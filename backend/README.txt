@@ -6,3 +6,6 @@ Backend for the Recommender System
 Initializing Server:
 - \backend>venv\Scripts\activate.bat // Activate the virtual environment
 - python run.py // Start the development server 
+
+~/Desktop/MovieRecommender/backend (main)
+$ source venv/Scripts/activate
