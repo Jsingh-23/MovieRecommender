@@ -6,9 +6,11 @@ export default function SearchBar({ onSearch }) {
   const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedSuggestion, setSelectedSuggestions] = useState(false)
 
   // Debounce search to avoid too many API calls
   useEffect(() => {
+    console.log("use effect running");
     const timer = setTimeout(async () => {
       if (query.trim()) {
         setIsLoading(true);
@@ -20,6 +22,7 @@ export default function SearchBar({ onSearch }) {
           console.error('Error fetching suggestions:', error);
         } finally {
           setIsLoading(false);
+          // setShowDropdown(false);
         }
       } else {
         setSuggestions([]);
@@ -31,6 +34,7 @@ export default function SearchBar({ onSearch }) {
   }, [query]);
 
   const handleSubmit = (e) => {
+    console.log("submit search");
     e.preventDefault();
     if (query.trim()) {
       onSearch(query);
@@ -39,7 +43,7 @@ export default function SearchBar({ onSearch }) {
   };
 
   const handleSuggestionClick = (movie) => {
-    setQuery(movie);
+    // setQuery(movie); // Initially I was resetting query here, which was causing issues with dropdown
     onSearch(movie);
     setShowDropdown(false);
   };
@@ -52,7 +56,7 @@ export default function SearchBar({ onSearch }) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onFocus={() => query.trim() && setShowDropdown(true)}
+            // onFocus={() => query.trim() && setShowDropdown(true)}
             placeholder="Enter a movie title..."
             className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -66,6 +70,7 @@ export default function SearchBar({ onSearch }) {
       </form>
 
       {/* Dropdown suggestions */}
+      {console.log(suggestions)}
       {showDropdown && suggestions.length > 0 && (
         <div 
           className="absolute z-10 w-full mt-1 bg-white rounded-lg shadow-lg border border-gray-200 max-h-60 overflow-auto"

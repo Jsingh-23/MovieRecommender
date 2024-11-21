@@ -7,8 +7,8 @@ export default function MovieList({ movies }) {
     const {user} = useAuth();
     
     if (!movies?.length) return null;
-    console.log(movies);
-    console.log(typeof movies);
+    // console.log(movies);
+    // console.log(typeof movies);
 
     const handleAddToWatchlist = async (movie) => {
       if (!user) {

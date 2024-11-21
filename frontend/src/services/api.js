@@ -19,24 +19,38 @@ import {
 const API_URL = 'http://localhost:5000/api';
 
 // Existing functions
-export const searchMovies = async (query) => {
-  try {
-    const response = await axios.get(`${API_URL}/search?query=${encodeURIComponent(query)}`);
-    return response.data.movies;
-  } catch (error) {
-    console.error('Error searching movies:', error);
-    throw error;
-  }
+export const searchMovies = (query) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`${API_URL}/search?query=${encodeURIComponent(query)}`) // Make axios GET request
+      .then(response => { 
+        if (response.data && response.data.movies) { // if succesful, checks if response has expected data
+          resolve(response.data.movies);
+        } else { 
+          reject(new Error('Invalid response format'));
+        }
+      })
+      .catch(error => {
+        console.error('Error searching movies:', error);
+        reject(error);
+      });
+  });
 };
 
-export const getRecommendations = async (title) => {
-  try {
-    const response = await axios.get(`${API_URL}/recommend?title=${encodeURIComponent(title)}`);
-    return response.data.recommendations;
-  } catch (error) {
-    console.error('Error getting recommendations:', error);
-    throw error;
-  }
+export const getRecommendations = (title) => {
+  return new Promise((resolve, reject) => {
+    axios.get(`${API_URL}/recommend?title=${encodeURIComponent(title)}`)
+      .then(response => {
+        if (response.data && response.data.recommendations) {
+          resolve(response.data.recommendations);
+        } else {
+          reject(new Error('No recommendations found'));
+        }
+      })
+      .catch(error => {
+        console.error('Error getting recommendations:', error);
+        reject(error);
+      });
+  });
 };
 
 // Watchlist functions

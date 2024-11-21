@@ -55,6 +55,7 @@ function Home() {
       </div>
       
       {/* Movie List */}
+      {console.log(recommendations)}
       <MovieList movies={recommendations} />
     </div>
   );

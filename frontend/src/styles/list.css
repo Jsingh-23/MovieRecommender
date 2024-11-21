@@ -24,7 +24,7 @@
  /* Movie card */
  .movie-card {
     padding: 1rem;
-    background-color: #0c0d0e;
+    /* background-color: #0c0d0e; */
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s;
@@ -42,13 +42,15 @@
  
  .movie-year {
     margin-top: 0.25rem;
-    color: #1f64c4; /* gray-600 */
+    color: black; /* gray-600 */
+    font-weight: bold;
  }
  
  .movie-genres {
     margin-top: 0.25rem;
     font-size: 0.875rem;
-    color: #1f64c4; /* gray-600 */
+    color: black; /* gray-600 */
+    font-weight: bold;
  }
  
  /* Add to watchlist button */
