@@ -50,7 +50,7 @@ function Home() {
           <SearchBar onSearch={handleSearch} />
           
           {loading && <p className="text-center mt-8">Loading recommendations...</p>}
-          {error && <p className="text-center mt-8 text-red-600">{error}</p>}
+          {error && <p className="text-center mt-8" color='#CD2121'>{error}</p>}
         </div>
       </div>
       

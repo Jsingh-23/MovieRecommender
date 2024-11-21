@@ -3,6 +3,20 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import re
+from threading import Lock
+
+class SingletonMeta(type):
+    _instances = {} # Dictionary to store singleton instances
+    _lock = Lock() # Thread Lock for lock safety
+
+    def __call__(cls, *args, **kwargs):
+        with cls._lock: ## Uses a context manager to acquire and release the lock
+            if cls not in cls._instances:
+                instance = super().__call__(*args, **kwargs)
+                cls._instances[cls] = instance
+            return cls._instances[cls]
+
+
 
 class RecommenderModelMovies:
     def __init__(self, movies_path, ratings_path):
@@ -13,6 +27,11 @@ class RecommenderModelMovies:
             movies_path (str): Path to the movies CSV file
             ratings_path (str): Path to the ratings CSV file
         """
+        # Check if model has already been initialized
+        # Prevents reloading of data
+        if hasattr(self, 'movies_df'):
+            return
+
         self.movies_path = movies_path
         self.ratings_path = ratings_path
         self.load_data()

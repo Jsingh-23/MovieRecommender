@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 // import { ErrorBoundary } from 'react-error-boundary';
 import App from './App';
 import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 
 const ErrorFallback = () => (
   <div role="alert">

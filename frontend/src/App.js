@@ -11,6 +11,8 @@ import ProfilePage from './pages/protected/Profile';
 import WatchlistPage from './pages/protected/Watchlist';
 import WatchHistoryPage from './pages/protected/Watchhistory';
 import MoviePage from './pages/MoviePage';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -25,12 +27,12 @@ function App() {
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/movie/:title" element={<MoviePage />} />
-            </Routes>
 
-            <Routes>
               {/* Protected Routes */}
               <Route 
                 path="/profile"

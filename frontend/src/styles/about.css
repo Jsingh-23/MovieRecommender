@@ -1,0 +1,129 @@
+/* src/styles/about.css */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #ffffff;
+  }
+  
+  .about-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .about-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .about-subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .feature-card {
+    background: #1f2937;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #60a5fa;
+  }
+  
+  .feature-card p {
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+  
+  .tech-stack {
+    background: #1f2937;
+    padding: 3rem 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 4rem;
+  }
+  
+  .tech-stack h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #60a5fa;
+  }
+  
+  .tech-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+  
+  .tech-item {
+    text-align: center;
+  }
+  
+  .tech-item h3 {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+  }
+  
+  .tech-item ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tech-item li {
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-footer {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .about-footer h2 {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+  }
+  
+  .about-footer p {
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .about-title {
+      font-size: 2rem;
+    }
+  
+    .about-subtitle {
+      font-size: 1rem;
+    }
+  
+    .feature-card {
+      padding: 1.5rem;
+    }
+  
+    .tech-stack {
+      padding: 2rem 1rem;
+    }
+  }
