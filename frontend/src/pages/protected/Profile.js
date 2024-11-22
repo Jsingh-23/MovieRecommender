@@ -13,6 +13,10 @@ const ProfilePage = () => {
                         <label className="profile-label">Email</label>
                         <div className="profile-value">{user?.email}</div>
                     </div>
+                    <div>
+                        <label className='profile-label'>Watchlist</label>
+                        {/* <div className='profile-value'>{user?.</div> */}
+                    </div>
                 </div>
             </div>
         </div>

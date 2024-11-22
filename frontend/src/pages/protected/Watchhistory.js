@@ -4,12 +4,16 @@ import { getWatchHistory, removeFromWatchHistory } from "../../services/api";
 import "../../styles/list.css";
 import MovieCard from "../../components/ui/MovieCard";
 
+import { useQueryClient } from "@tanstack/react-query";
+
 const WatchHistoryPage = () => {
     const {user} = useAuth();
     const [watchHistoryList, setWatchHistoryList] = useState([]);
     const [loading, setLoading] = useState(null);
     const [error, setError] = useState(null);
     const [deleting, setDeleting] = useState(null);
+
+    const queryClient = useQueryClient();
 
     const getWatchHistoryData = async() => {
         if (!user) return;

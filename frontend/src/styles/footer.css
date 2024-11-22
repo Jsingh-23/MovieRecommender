@@ -1,5 +1,4 @@
 .footer-container {
-    /* position: absolute; */
     width: 100%;
 }
 
@@ -12,8 +11,7 @@
     bottom: 0;
     background-color: #2C3440;
     gap: 2rem;
-    padding: 0.5rem;
-    /* border: 1px; */
+    padding: 0.1rem;
 }
 
 .nav-item {
@@ -25,32 +23,5 @@
 }
 
 .nav-item:hover {
-    /* cursor: pointer; */
-    transform: scale(1.1);  /* Makes button 25% bigger */
+    transform: scale(1.1);  /* Makes button 10% bigger */
 }
-
-/* .footer-container {
-    width: 100%;
-    padding: 1.5rem 0;
-}
-
-.footer {
-    position: relative; 
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem; 
-}
-
-.nav-item {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.75rem;
-    color: white;
-    transition: all 0.2s ease;
-    transform: scale(1);
-}
-
-.nav-item:hover {
-    transform: scale(1.1);
-} */

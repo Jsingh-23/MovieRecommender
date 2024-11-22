@@ -44,8 +44,11 @@ export default function SearchBar({ onSearch }) {
 
   const handleSuggestionClick = (movie) => {
     // setQuery(movie); // Initially I was resetting query here, which was causing issues with dropdown
+    // console.log("suggestion movie: ", movie);
+    document.getElementById("search-input").value = movie;
     onSearch(movie);
     setShowDropdown(false);
+    // Text.value
   };
 
   return (
@@ -54,7 +57,8 @@ export default function SearchBar({ onSearch }) {
         <div className="flex gap-2">
           <input
             type="text"
-            value={query}
+            id="search-input"
+            // value={query}
             onChange={(e) => setQuery(e.target.value)}
             // onFocus={() => query.trim() && setShowDropdown(true)}
             placeholder="Enter a movie title..."
@@ -70,7 +74,7 @@ export default function SearchBar({ onSearch }) {
       </form>
 
       {/* Dropdown suggestions */}
-      {console.log(suggestions)}
+      {/* {console.log(suggestions)} */}
       {showDropdown && suggestions.length > 0 && (
         <div 
           className="absolute z-10 w-full mt-1 bg-white rounded-lg shadow-lg border border-gray-200 max-h-60 overflow-auto"

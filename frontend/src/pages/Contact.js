@@ -58,9 +58,9 @@ const Contact = () => {
           <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="contact-link">
             👔 LinkedIn
           </a>
-          <a href={resumeUrl} download className="contact-link">
+          {/* <a href={resumeUrl} download className="contact-link">
             📄 Download Resume
-          </a>
+          </a> */}
         </div>
       </section>
 

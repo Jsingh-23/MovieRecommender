@@ -5,6 +5,7 @@ import App from './App';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 
+
 const ErrorFallback = () => (
   <div role="alert">
     <h2>Oops! Something went wrong</h2>
