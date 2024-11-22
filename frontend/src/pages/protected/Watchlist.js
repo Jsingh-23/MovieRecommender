@@ -35,7 +35,8 @@ const WatchlistPage = () => {
         setLoading(true);
         try {
             await addToWatchHistory(user.uid, movieId);
-            // queryClient.setQueryData
+            queryClient.setQueryData(['watchlist', user.uid], (oldData) => 
+                oldData)
         } catch (error) {
             setError("Failed to add movie to watch history: ", error);
             console.error(error);
