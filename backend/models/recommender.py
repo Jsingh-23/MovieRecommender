@@ -5,8 +5,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 import re
 from threading import Lock
 
-print(sklearn)
-
 class SingletonMeta(type):
     _instances = {} # Dictionary to store singleton instances
     _lock = Lock() # Thread Lock for lock safety
