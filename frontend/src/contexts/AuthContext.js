@@ -70,3 +70,6 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
+
+
+// Implement editing user profile and sending email verification 
