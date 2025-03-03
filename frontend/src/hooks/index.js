@@ -10,7 +10,7 @@ export const useWatchlist = (userId) => {
         cacheTime: 30 * 60 * 1000 // inactive data is stored in cache for 30 minutes
     })
 }
-
+// Cached response for more responsiveness
 export const useWatchHistory = (userId) => {
     return useQuery({
         queryKey: ['watchhistory', userId],
@@ -20,4 +20,3 @@ export const useWatchHistory = (userId) => {
         cacheTime: 30 * 60 * 1000
     })
 }
-
